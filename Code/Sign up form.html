@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> SIGN UP </title>
+	</head>
+	<script>
+        function Back() {
+            window.history.back();
+        }
+
+        function Front() {
+            window.history.forward();
+        }
+    </script>
+	<style>
+		.bg {
+              background-image: url("https://cdn.cdnparenting.com/articles/2018/10/25143705/382824445-H.jpg");
+              height: 100%; width:100%;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+     
+input[type=text], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid red;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=email], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid red;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid red;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 70%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 0px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+	align:center;
+  border-radius: 5px;
+  
+  padding: 0px;
+  width:70%;
+}
+div.transbox {
+  margin: 30px;
+  background-color: skyblue;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: black;
+}
+</style>
+<center>
+		<button onclick="Back()"><font size = "4"><b>Back</button></b></font>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+    <button onclick="Front()"><font size = "4"><b>Forward</button></center></b></font>
+<body>
+	<p id="f1"></p>
+	<div class="bg">
+	<br>
+	<br>
+	<br>
+	<br>
+	<form id="myForm" onsubmit="checkfields()">
+		<center>
+			<div>
+				<div class = "transbox">
+			 <label for="fname"><b>First Name</label></b>
+			 <br>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+<br>
+    <label for="lname"><b>Last Name</label></b>
+    <br>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.." >
+    <br>
+    <label for="lname"><b>EMAIL</label></b>
+    <br>
+    <input type="email" id="lname" name="lastname" placeholder="Your email" required>
+    <br>
+    <label for="country"><b>Country</label></b>
+    <br>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+      <option value="usa">India</option>
+      <option value="usa">Russia</option>
+    </select>
+    <br>
+    <label for="fname"><b>USERID</label></b>
+    <br>
+    <input type="text" id="fname" name="firstname" placeholder="You can also use special characters" required>
+    <br>
+    <label for="fname"><b>PASSWORD</label></b>
+    <br>
+    <input type="password" id="fname" name="firstname" placeholder="Use 8 letters password" minlength="8" required>
+    </div>
+    <input type="submit" value="Submit">
+		
+	</form>
+	</center>
+	<script>
+
+
+function checkfields() {
+  alert("The form was submitted");
+  display();
+}
+function display()
+{
+    var oForm = document.getElementById('myForm');
+    str = "Form Elements of form " + oForm.name + ": \n"
+     for (i = 0; i < oForm.length; i++)
+     if (!oForm.elements[i].value){
+          str += oForm.elements[i].name + " "+ oForm.elements[i].value + "\n"
+          alert(str);
+     }
+    
+}
+</script>
+	<br>
+	<br>
+</div>
+</div>
+</body>
+</html>

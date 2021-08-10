@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> LOG IN </title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+input,
+.btn {
+  width: 25%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+
+</style>
+		<script>
+        function Back() {
+            window.history.back();
+        }
+
+        function Front() {
+            window.history.forward();
+        }
+    </script>
+	</head>
+<center>
+	<style>
+		.bg {
+              background-image: url("https://media.istockphoto.com/vectors/dragon-lands-vector-id1160401988?k=6&m=1160401988&s=612x612&w=0&h=a58_UoJlGG2xcJXamnruxq7A0UJ08wDMteuFiWH0Jq4=");
+              height: 100%; 
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+     
+input[type=text], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid red;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 75%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid red;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 75%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+	align:center;
+  border-radius: 5px;
+  background-color: skyblue;
+  padding: 0px;
+  width: 50%;
+}
+div.transbox {
+  margin: 30px;
+  background-color: skyblue;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+</style>
+<center>
+		<button onclick="Back()"><font size = "4"><b>Back</button></b></font>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+    <button onclick="Front()"><font size = "4"><b>Forward</button></center></b></font>
+    <br>
+    <br>
+<body>
+	<div class = "bg">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form width="50%">
+		
+	<div>
+		<center >
+		<label for="fname"><b>USERNAME</b></label>
+		<br>
+    <input type="text" id="fname" name="firstname" placeholder="Your Username.." required>
+    <br>
+    <label for="lname"><b>PASSWORD</b></label>
+    <br>
+    <input type="password" id="lname" name="lastname" placeholder="Your Password.." required>
+ <input type="submit" value="Submit">
+ <BR>
+ <a href="alert password.html" target ="_self"><font size = "4" color = "red"><I><b>forgot password</b></I></font></a><br>
+	</div>
+	</center>
+	<center>
+	<a href="#" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+         </a>
+         <br>
+        <a href="#" class="twitter btn">
+          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+        </a>
+        <br>
+        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+          </i> Login with Google+
+        </a>
+        </center>
+</center>
+</form>
+</div>
+</body>
+</html>

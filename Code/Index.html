@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		My Personal Website
+	</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: cyan;
+}
+
+
+.header {
+  padding: 10px;
+  text-align: center;
+  background: cyan;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card1 {
+  background-color: wheat;
+  border-radius: 50%;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card2 {
+  background-color:aquamarine ;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card3 {
+  background-color:lightcyan ;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card4 {
+  background-color: springgreen;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: ivory;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 200px;
+} 
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+</style>
+<script>
+        function Back() {
+            window.history.back();
+        }
+
+        function Front() {
+            window.history.forward();
+        }
+    </script>
+    	<font size="6" face="mistral"><marquee>Hi!&nbsp; WELCOME &nbsp;TO &nbsp;MY &nbsp;SITE </marquee></font></h1></h1>
+    <h4 align="right">
+		<script>
+        var date = new Date();
+        var Month = date.toLocaleString("en-us", {
+            month: "long"
+        });
+        var Day = date.getDate();
+        var Year = date.getFullYear();
+        var H = date.getHours();
+        var M = date.getMinutes();
+        var S = date.getSeconds();
+
+        document.write( Day + " " + Month + " " + Year);
+        document.write("<br>", H, "H:", M, "M:", S,"S");
+    </script>
+    </h4>
+</head>
+<body>
+<button onclick="Back()"><font size = "4"><b>Back</button></b></font>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;		
+    <button onclick="Front()"><font size = "4"><b>Forward</button></b></font>
+<h3 align="right"><a href="game.html"><font size = "5">LETS HAVE FUN </font></a></h3>
+<div class="topnav">
+   <a href="specifications.html"><font size = "3" color = "red">SPECIFICATIONS </font></a>
+    <a href="Photos.html" ><font size = "3" color = "red"> GALLERY </font></a>
+    <a href="Schooling.html" ><font size = "3" color = "red">SCHOOLING </font></a>
+    <a href="Inter.html"><font size = "3" color = "red">INTERMIDIATE </font></a>
+    <a href="More info.html"><font size = "3" color = "red"> MOREINFO </font></a>
+    <a href="Sign up form.html" style="float:right">SIGN UP</a>
+  <a href="Log in form.html" style="float:right">LOG IN</a>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>ABOUT ME </h2>
+      <h5>Amrita University has five campuses situated in Amritapuri, Bangalore, Coimbatore, Kochi and Mysore and Amaravati campus was in Construction.</h5>
+      <div class="fake" style="height:200px;"><img src="https://www.amrita.edu/sites/default/files/amrita-amritapuri-campus-banner-1.jpg" ></div>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
+      <p>The Amritapuri Campus is spread over 80 acres of land in one of the most beautiful and picturesque locales of the Kerala coastal line. It is currently home to numerous schools and research centers. </p>
+    </div>
+    <div class="card">
+      <h2>Our Chancellor</h2>
+      <h5> Established <b>1994</b></h5>
+      <div class="fake" style="height:200px;"><center><img src = "https://scontent.fhyd1-2.fna.fbcdn.net/v/t1.6435-9/158064738_2897123157168334_107474843736243590_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=730e14&_nc_ohc=zluum36FKHIAX_HgQVX&tn=AMLIo77bItABuJaM&_nc_ht=scontent.fhyd1-2.fna&oh=eacf561ecd6d5f8a5fa883ae99ca94a9&oe=60DF1B1C" width = "340" height="310" style="border-radius: 50%;"></center></div>
+      <br><br><br>
+      <h3>Mata Amritanandamayi Devi known as <b> Amma </b></h3>
+      <p>Also Mother, for her selfless love and compassion toward all beings. Her entire life has been dedicated to alleviating the pain of the poor, and those suffering physically and emotionally.</p>
+    </div>
+  </div>
+  <div class="rightcolumn">
+    <div class="card2">
+      <h2>About Me</h2>
+      <div class="fake"><center> <img src = "https://scontent.fvga2-1.fna.fbcdn.net/v/t1.6435-9/71771173_133806934661229_8829075351679270912_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=StsvngVTSwIAX9UsImk&_nc_ht=scontent.fvga2-1.fna&oh=cd336642f1b64fbe0cd412d73ba22f11&oe=60DF6ACB" alt = "mani" style="border-radius: 50%;" width = "150" height = "150"></center></div>
+      <p>I am Manikanta I am a Programmer</p>
+    </div>
+    <div class="card4">
+      <h2>Popular Posts</h2>
+      <div class="fake"><h4><a href="https://twitter.com/Amritanandamayi/status/1399463961678860288?s=20"> Amma Post 1 </a></h4></div>
+      <div class="fake"><h4><a href="https://fb.watch/6qJU8sxeE3/"> Amma Post 2</a></h4></div>
+      <div class="fake"><h4><a href="https://fb.watch/6qJY5nXs-z/">Amma Post 3</a></h4></div>
+    </div>
+    <div class="card3">
+		<h2><b>Amma Slogans</h2></b>
+		<p>``Karagre Vasate Lakshmi Karamadhye Sarasvati Karamule Tu Govinda Prabhate Karadarshanam``</p>
+		<p>``Samudravasane Devi Parvatastanamandale Vishnupatni Namastubhyam Padasparsham Kshamasva Me``</p>
+		<p>''A belief obtained through telling, hearing and reading will not last long. Whereas, the faith gained from experience will last forever``</p>
+    </div>
+
+    <div class="card1">
+      <h3>Follow Me</h3>
+       <a href="https://www.facebook.com/manikanta.thota.7921/" target="_blank"><img src="https://i.pinimg.com/originals/af/9c/cb/af9ccb82cd058e86d5a487223980e31c.png" alt="HTML tutorial" style="width:42px;height:42px;border-radius: 50%;"></a>   &nbsp;  &nbsp; &nbsp; &nbsp; 
+     <a href="https://www.instagram.com/manikanta_23_sai/" target="_blank"><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-hnGkc9xevhteOTH46W4kUl0VXx3uCuIftQ&usqp=CAU%22width=%2250"  alt="HTML tutorial" style="width:42px;height:42px;border-radius: 50%;"> </a>      &nbsp;  &nbsp; &nbsp; &nbsp;
+     <a href = "https://twitter.com/824Manikanta" target="_blank" > <img src = "https://pbs.twimg.com/profile_images/1354479896072884225/AaUbc7ao_400x400.jpg" alt="HTML tutorial" style="width:42px;height:42px;border-radius: 50%;" > </a>    &nbsp; &nbsp; &nbsp; &nbsp; 
+     <a href="mailto:amritapuri@am.amrita.edu" target="_blank"><img src = "https://cdn3.iconfinder.com/data/icons/logos-brands-3/24/logo_brand_brands_logos_gmail-512.png"  style="width:42px;height:42px;border-radius: 50%;"></a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+   <div class="row">
+  <div class="column">
+    <h2>COLLEGE ADDRESS</h2>
+    <p>Amrita Vishwa Vidhya Petam</p>
+    <p>Vallikavu PO,Clappana</p>
+    <p>Amritapuri</p>
+    <p>Kerala</p>
+  </div>
+  <div class="column" >
+    <h2>HOME ADDRESS</h2>
+    <p>Kethavaram,1-6</p>
+    <p>Near Hanuman Temple</p>
+    <p>Jangareddygudem Mandel,West Godavari</p>
+    <p>Andhra Pradesh</p>
+  </div>
+</div>
+<h3><footer align = "center" > 2021 copyrights THOTA SAI NAGA MANIKANTA  </footer></h3>
+</div>
+</body>
+</html>
+

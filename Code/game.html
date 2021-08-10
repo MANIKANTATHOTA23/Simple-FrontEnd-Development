@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>TIC TAC TOE</title>
+    <script>
+        function Back() {
+            window.history.back();
+        }
+
+        function Front() {
+            window.history.forward();
+        }
+    </script>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+
+        .instructions {
+            color: blanchedalmond;
+        }
+
+        #player_symbol {
+            color: red;
+
+        }
+
+        #computer_symbol {
+            color: green;
+
+        }
+
+        #fullpage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas:
+                'box-1 box-2 box-3'
+                'box-4 box-5 box-6'
+                'box-7 box-8 box-9';
+            grid-template-columns: repeat(auto-fit, 100px);
+            grid-gap: 15px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            border: 2px solid greenyellow;
+            border-radius: 15px;
+            box-shadow: 2px 2px 7px greenyellow;
+            height: 100px;
+            width: 100px;
+            background-color: blanchedalmond;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #box-1 {
+            grid-area: box-1;
+        }
+
+        #box-2 {
+            grid-area: box-2;
+        }
+
+        #box-3 {
+            grid-area: box-3;
+        }
+
+        #box-4 {
+            grid-area: box-4;
+        }
+
+        #box-5 {
+            grid-area: box-5;
+        }
+
+        #box-6 {
+            grid-area: box-6;
+        }
+
+        #box-7 {
+            grid-area: box-7;
+        }
+
+        #box-8 {
+            grid-area: box-8;
+        }
+
+        #box-9 {
+            grid-area: box-9;
+        }
+
+        .box p {
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .input h3 {
+            display: inline;
+            color: blanchedalmond;
+            text-shadow: 0.5px 0.5px 2px wheat;
+        }
+
+        .input {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: blanchedalmond;
+            text-shadow: 0.5px 0.5px wheat;
+            font-family: cursive;
+        }
+
+        .input button {
+            margin-top: 20px;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            color: black;
+            font-size: 17px;
+            font-weight: bold;
+            font-family: cursive;
+        }
+
+        .input button:hover {
+            box-shadow: -1px -1px 6px 3px greenyellow;
+            cursor: pointer;
+        }
+
+        #inp {
+            width: 50px;
+            border-radius: 8px;
+        }
+
+        #sample {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #thinking {
+            display: none;
+
+        }
+    </style>
+    <script>
+        function validation() {
+            input = document.getElementById("inp");
+            if (input.value == "") {
+                alert("Please,enter a valid input");
+            }
+            else {
+                display();
+            }
+        }
+        function display() {
+            var mark;
+            var player;
+            player = document.getElementById("play");
+            b_1 = document.getElementById("b-1");
+            b_2 = document.getElementById("b-2");
+            b_3 = document.getElementById("b-3");
+            b_4 = document.getElementById("b-4");
+            b_5 = document.getElementById("b-5");
+            b_6 = document.getElementById("b-6");
+            b_7 = document.getElementById("b-7");
+            b_8 = document.getElementById("b-8");
+            b_9 = document.getElementById("b-9");
+
+            mark = "X";
+            if (input.value >= 0 && input.value <= 8) {
+                if (input.value == 0) {
+                    if (b_1.innerHTML == "X" || b_1.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_1.innerHTML = mark;
+                        b_1.style.color = "red";
+                        b_1.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 1) {
+                    if (b_2.innerHTML == "X" || b_2.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_2.innerHTML = mark;
+                        b_2.style.color = "red";
+                        b_2.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 2) {
+                    if (b_3.innerHTML == "X" || b_3.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_3.innerHTML = mark;
+                        b_3.style.color = "red";
+                        b_3.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 3) {
+                    if (b_4.innerHTML == "X" || b_4.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_4.innerHTML = mark;
+                        b_4.style.color = "red";
+                        b_4.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 4) {
+                    if (b_5.innerHTML == "X" || b_5.innerHTML == "O") {
+                        alert("Please,choose an other option");
+                    }
+                    else {
+                        b_5.innerHTML = mark;
+                        b_5.style.color = "red";
+                        b_5.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 5) {
+                    if (b_6.innerHTML == "X" || b_6.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_6.innerHTML = mark;
+                        b_6.style.color = "red";
+                        b_6.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 6) {
+                    if (b_7.innerHTML == "X" || b_7.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_7.innerHTML = mark;
+                        b_7.style.color = "red";
+                        b_7.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 7) {
+                    if (b_8.innerHTML == "X" || b_8.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_8.innerHTML = mark;
+                        b_8.style.color = "red";
+                        b_8.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+                else if (input.value == 8) {
+                    if (b_9.innerHTML == "X" || b_9.innerHTML == "O") {
+                        alert("Please,choose an other option");
+
+                    }
+                    else {
+                        b_9.innerHTML = mark;
+                        b_9.style.color = "red";
+                        b_9.style.fontSize = "75px";
+                        document.getElementById("inp").value = "";
+                        check();
+                        document.getElementById("sample").style.display = "none";
+                        document.getElementById("submit").style.display = "none";
+                        document.getElementById("thinking").style.display = "block";
+                        setTimeout(computer, 2000);
+                    }
+                }
+            }
+            else {
+                alert("Please,enter a value from 0 to 8");
+            }
+
+
+        }
+        function random_choice() {
+            mark = "O";
+            random = Math.floor(Math.random() * 9);
+            if (random >= 0 && random <= 8) {
+                if (random == 0) {
+                    if (b_1.innerHTML == "X" || b_1.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_1.innerHTML = mark;
+                        b_1.style.color = "green";
+                        b_1.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 1) {
+                    if (b_2.innerHTML == "X" || b_2.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_2.innerHTML = mark;
+                        b_2.style.color = "green";
+                        b_2.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 2) {
+                    if (b_3.innerHTML == "X" || b_3.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_3.innerHTML = mark;
+                        b_3.style.color = "green";
+                        b_3.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 3) {
+                    if (b_4.innerHTML == "X" || b_4.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_4.innerHTML = mark;
+                        b_4.style.color = "green";
+                        b_4.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 4) {
+                    if (b_5.innerHTML == "X" || b_5.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_5.innerHTML = mark;
+                        b_5.style.color = "green";
+                        b_5.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 5) {
+                    if (b_6.innerHTML == "X" || b_6.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_6.innerHTML = mark;
+                        b_6.style.color = "green";
+                        b_6.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 6) {
+                    if (b_7.innerHTML == "X" || b_7.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_7.innerHTML = mark;
+                        b_7.style.color = "green";
+                        b_7.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 7) {
+                    if (b_8.innerHTML == "X" || b_8.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_8.innerHTML = mark;
+                        b_8.style.color = "green";
+                        b_8.style.fontSize = "75px";
+                        check();
+                    }
+                }
+                else if (random == 8) {
+                    if (b_9.innerHTML == "X" || b_9.innerHTML == "O") {
+                        random_choice();
+                    }
+                    else {
+                        b_9.innerHTML = mark;
+                        b_9.style.color = "green";
+                        b_9.style.fontSize = "75px";
+                        check();
+                    }
+                }
+            }
+        }
+        function computer() {
+            mark = "O";
+            random = Math.floor(Math.random() * 9);
+            if ((b_1.innerHTML == b_2.innerHTML)&&(b_1.innerHTML == 'X' && b_2.innerHTML == "X")&&( b_3.innerHTML==2)) {
+                 {
+                    b_3.innerHTML = mark;
+                    b_3.style.color = "green";
+                    b_3.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                }
+
+            }
+            else if ((b_1.innerHTML == b_3.innerHTML)&&(b_1.innerHTML == 'X' && b_3.innerHTML == "X")&&( b_2.innerHTML ==01)) {
+                
+                    b_2.innerHTML = mark;
+                    b_2.style.color = "green";
+                    b_2.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_2.innerHTML == b_3.innerHTML)&& (b_3.innerHTML == 'X' && b_2.innerHTML == "X")&&( b_1.innerHTML==0)){
+               
+                    b_1.innerHTML = mark;
+                    b_1.style.color = "green";
+                    b_1.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_4.innerHTML == b_5.innerHTML)&&(b_5.innerHTML == 'X' && b_4.innerHTML == "X")&&( b_6.innerHTML ==5)) {
+               
+                    b_6.innerHTML = mark;
+                    b_6.style.color = "green";
+                    b_6.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_4.innerHTML == b_6.innerHTML)&&(b_4.innerHTML == 'X' && b_6.innerHTML == "X")&&(b_5.innerHTML==04)) {
+                
+                    b_5.innerHTML = mark;
+                    b_5.style.color = "green";
+                    b_5.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_5.innerHTML == b_6.innerHTML)&&(b_6.innerHTML == 'X' && b_5.innerHTML == "X")&&(b_4.innerHTML==03)) {
+                
+                    b_4.innerHTML = mark;
+                    b_4.style.color = "green";
+                    b_4.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_7.innerHTML == b_8.innerHTML)&&(b_7.innerHTML == 'X' && b_8.innerHTML == "X")&&(b_9.innerHTML==08)) {
+                
+                    b_9.innerHTML = mark;
+                    b_9.style.color = "green";
+                    b_9.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_7.innerHTML == b_9.innerHTML)&&(b_7.innerHTML == 'X' && b_9.innerHTML == "X")&&(b_8.innerHTML==07)) {
+                
+                    b_8.innerHTML = mark;
+                    b_8.style.color = "green";
+                    b_8.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_8.innerHTML == b_9.innerHTML)&&(b_8.innerHTML == 'X' && b_9.innerHTML == "X")&&(b_7.innerHTML==06)) {
+              
+                    b_7.innerHTML = mark;
+                    b_7.style.color = "green";
+                    b_7.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_1.innerHTML == b_4.innerHTML)&&(b_1.innerHTML == 'X' && b_4.innerHTML == "X")&&(b_7.innerHTML==06)) {
+             
+                    b_7.innerHTML = mark;
+                    b_7.style.color = "green";
+                    b_7.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_1.innerHTML == b_7.innerHTML)&&(b_1.innerHTML == 'X' && b_7.innerHTML == "X")&&(b_4.innerHTML==03)) {
+                
+                    b_4.innerHTML = mark;
+                    b_4.style.color = "green";
+                    b_4.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+            }
+            else if ((b_7.innerHTML == b_4.innerHTML)&&(b_7.innerHTML == 'X' && b_4.innerHTML == "X")&&(b_1.innerHTML==0)) {
+            
+                    b_1.innerHTML = mark;
+                    b_1.style.color = "green";
+                    b_1.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+
+            }
+            else if ((b_2.innerHTML == b_5.innerHTML)&&(b_2.innerHTML == 'X' && b_5.innerHTML == "X")&&(b_8.innerHTML==7)) {
+            
+                    b_8.innerHTML = mark;
+                    b_8.style.color = "green";
+                    b_8.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+
+            }
+            else if ((b_2.innerHTML == b_8.innerHTML)&&(b_2.innerHTML == 'X' && b_8.innerHTML == "X")&&(b_5.innerHTML==4)) {
+            
+                    b_5.innerHTML = mark;
+                    b_5.style.color = "green";
+                    b_5.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+              
+            }
+            else if ((b_5.innerHTML == b_8.innerHTML)&&(b_5.innerHTML == 'X' && b_8.innerHTML == "X")&&(b_2.innerHTML==01)) {
+            
+                    b_2.innerHTML = mark;
+                    b_2.style.color = "green";
+                    b_2.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_3.innerHTML == b_6.innerHTML)&&(b_3.innerHTML == 'X' && b_6.innerHTML == "X")&&( b_9.innerHTML==08)) {
+                
+                    b_9.innerHTML = mark;
+                    b_9.style.color = "green";
+                    b_9.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+            }
+            else if ((b_3.innerHTML == b_9.innerHTML)&&(b_3.innerHTML == 'X' && b_9.innerHTML == "X")&&(b_6.innerHTML==05)) {
+               
+                    b_6.innerHTML = mark;
+                    b_6.style.color = "green";
+                    b_6.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_9.innerHTML == b_6.innerHTML)&&(b_6.innerHTML == 'X' && b_9.innerHTML == "X")&&( b_3.innerHTML==02)) {
+            
+                    b_3.innerHTML = mark;
+                    b_3.style.color = "green";
+                    b_3.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_1.innerHTML == b_5.innerHTML)&&(b_1.innerHTML == 'X' && b_5.innerHTML == "X")&&(b_9.innerHTML==08)) {
+           
+                    b_9.innerHTML = mark;
+                    b_9.style.color = "green";
+                    b_9.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+              
+            }
+            else if ((b_1.innerHTML == b_9.innerHTML)&&(b_1.innerHTML == 'X' && b_9.innerHTML == "X")&&(b_5.innerHTML==4)) {
+                
+                    b_5.innerHTML = mark;
+                    b_5.style.color = "green";
+                    b_5.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+               
+            }
+            else if ((b_5.innerHTML == b_9.innerHTML)&&(b_5.innerHTML == 'X' && b_9.innerHTML == "X")&&(b_1.innerHTML==0)) {
+                
+                    b_1.innerHTML = mark;
+                    b_1.style.color = "green";
+                    b_1.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_3.innerHTML == b_5.innerHTML)&&(b_3.innerHTML == 'X' && b_5.innerHTML == "X")&&(b_7.innerHTML==06)) {
+                
+                    b_7.innerHTML = mark;
+                    b_7.style.color = "green";
+                    b_7.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_3.innerHTML == b_7.innerHTML)&&(b_3.innerHTML == 'X' && b_7.innerHTML == "X")&&(b_5.innerHTML==4)) {
+                
+                    b_5.innerHTML = mark;
+                    b_5.style.color = "green";
+                    b_5.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else if ((b_7.innerHTML == b_5.innerHTML)&&(b_7.innerHTML == 'X' && b_5.innerHTML == "X")&&(b_3.innerHTML==02)) {
+                
+                    b_3.innerHTML = mark;
+                    b_3.style.color = "green";
+                    b_3.style.fontSize = "75px";
+                    check();
+                    console.log("computer");
+                
+            }
+            else {
+                random_choice(); console.log("Enterd into random");
+            }
+            document.getElementById("sample").style.display = "block";
+            document.getElementById("submit").style.display = "block";
+            document.getElementById("thinking").style.display = "none";
+        }
+
+        function check() {
+            if (b_1.innerHTML == b_2.innerHTML && b_3.innerHTML == b_2.innerHTML) {
+                if (b_1.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+
+                }
+                else if (b_1.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+
+                }
+                document.getElementById("box-1").style.backgroundColor = "grey";
+                document.getElementById("box-2").style.backgroundColor = "grey";
+                document.getElementById("box-3").style.backgroundColor = "grey";
+            }
+            else if (b_4.innerHTML == b_5.innerHTML && b_5.innerHTML == b_6.innerHTML) {
+                if (b_4.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+
+
+                }
+                else if (b_4.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-4").style.backgroundColor = "grey";
+                document.getElementById("box-5").style.backgroundColor = "grey";
+                document.getElementById("box-6").style.backgroundColor = "grey";
+            }
+            else if (b_7.innerHTML == b_8.innerHTML && b_8.innerHTML == b_9.innerHTML) {
+                if (b_7.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                else if (b_7.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-7").style.backgroundColor = "grey";
+                document.getElementById("box-8").style.backgroundColor = "grey";
+                document.getElementById("box-9").style.backgroundColor = "grey";
+            }
+            else if (b_1.innerHTML == b_4.innerHTML && b_4.innerHTML == b_7.innerHTML) {
+                if (b_1.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                else if (b_1.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-1").style.backgroundColor = "grey";
+                document.getElementById("box-4").style.backgroundColor = "grey";
+                document.getElementById("box-7").style.backgroundColor = "grey";
+            }
+            else if (b_2.innerHTML == b_5.innerHTML && b_5.innerHTML == b_8.innerHTML) {
+                if (b_2.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                else if (b_2.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-2").style.backgroundColor = "grey";
+                document.getElementById("box-5").style.backgroundColor = "grey";
+                document.getElementById("box-8").style.backgroundColor = "grey";
+            }
+            else if (b_3.innerHTML == b_6.innerHTML && b_6.innerHTML == b_9.innerHTML) {
+                if (b_3.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                else if (b_3.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-3").style.backgroundColor = "grey";
+                document.getElementById("box-6").style.backgroundColor = "grey";
+                document.getElementById("box-9").style.backgroundColor = "grey";
+            }
+            else if (b_1.innerHTML == b_5.innerHTML && b_5.innerHTML == b_9.innerHTML) {
+                if (b_1.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                else if (b_1.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-1").style.backgroundColor = "grey";
+                document.getElementById("box-5").style.backgroundColor = "grey";
+                document.getElementById("box-9").style.backgroundColor = "grey";
+            }
+            else if (b_3.innerHTML == b_5.innerHTML && b_5.innerHTML == b_7.innerHTML) {
+                if (b_3.innerHTML == "X") {
+                    document.getElementById("input").innerHTML = "You won the game🙌🙌";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                else if (b_3.innerHTML == "O") {
+                    document.getElementById("input").innerHTML = "Sorry better luck next time🤞🤞";
+                    document.getElementById("input").style.fontSize = "25px";
+                }
+                document.getElementById("box-3").style.backgroundColor = "grey";
+                document.getElementById("box-5").style.backgroundColor = "grey";
+                document.getElementById("box-7").style.backgroundColor = "grey";
+            }
+            else if (b_1.innerHTML != 00 && b_2.innerHTML != 1 && b_3.innerHTML != 2 && b_4.innerHTML != 03 && b_5.innerHTML != 04 && b_6.innerHTML != 05 && b_7.innerHTML != 06 && b_8.innerHTML != 07 && b_9.innerHTML != 08) {
+                document.getElementById("input").innerHTML = "Draw match👀👀";
+                document.getElementById("input").style.fontSize = "25px";
+            }
+            clearTimeout(computer);
+        }
+
+    </script>
+</head>
+<center>
+		<button onclick="Back()"><font size = "4"><b>Back</button></b></font>
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+    <button onclick="Front()"><font size = "4"><b>Forward</button></center></b></font>
+<body>
+    <h1 align="center" style="color:blanchedalmond;font-size: 23px;">🤗Welcome to TIC TAC TOE🤗</h1>
+    <div class="instructions">
+        <h4>Player--<span id="player_symbol"> X</span></h4>
+        <h4>Computer--<span id="computer_symbol"> O</span></h4>
+    </div>
+    <div id="fullpage">
+        <div class="container">
+            <div class="box" id="box-1">
+                <p id="b-1">00</p>
+            </div>
+            <div class="box" id="box-2">
+                <p id="b-2">01</p>
+            </div>
+            <div class="box" id="box-3">
+                <p id="b-3">02</p>
+            </div>
+            <div class="box" id="box-4">
+                <p id="b-4">03</p>
+            </div>
+            <div class="box" id="box-5">
+                <p id="b-5">04</p>
+            </div>
+            <div class="box" id="box-6">
+                <p id="b-6">05</p>
+            </div>
+            <div class="box" id="box-7">
+                <p id="b-7">06</p>
+            </div>
+            <div class="box" id="box-8">
+                <p id="b-8">07</p>
+            </div>
+            <div class="box" id="box-9">
+                <p id="b-9">08</p>
+            </div>
+        </div>
+
+        <div class="input" id="input">
+            <div id="sample">
+                <h3 id="Player"><span id=play>Player</span> , Enter your choice : </h3>
+                <input type="number" id="inp" required>
+            </div>
+            <button onclick="validation()" id="submit">Submit</button>
+            <h3 id="thinking">Computer is thinking</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
